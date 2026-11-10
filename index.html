@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduStreak - AI Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> EduStreak
+            </div>
+            <div class="streak-counter" id="streakDisplay">
+                🔥 Streak: <span id="streakCount">0</span> Days
+            </div>
+        </header>
+
+        <!-- Login Section -->
+        <section id="loginSection" class="active-section">
+            <div class="card login-card">
+                <h2>Welcome Back!</h2>
+                <p>Select your class to start learning.</p>
+                <select id="classSelect">
+                    <option value="1">Class 1</option>
+                    <option value="2">Class 2</option>
+                    <option value="3">Class 3</option>
+                    <option value="4">Class 4</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                    <option value="11">Class 11</option>
+                    <option value="12">Class 12</option>
+                </select>
+                <input type="text" id="usernameInput" placeholder="Enter your name" />
+                <button onclick="app.login()">Start Learning</button>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboardSection" class="hidden-section">
+            <div class="card dashboard-card">
+                <h2>Hello, <span id="displayName">Student</span>!</h2>
+                <p>Current Class: <strong id="displayClass">-</strong></p>
+                
+                <div class="subject-grid">
+                    <button class="subject-btn" onclick="app.startQuiz('Math')">Math</button>
+                    <button class="subject-btn" onclick="app.startQuiz('Science')">Science</button>
+                    <button class="subject-btn" onclick="app.startQuiz('English')">English</button>
+                    <button class="subject-btn" onclick="app.startQuiz('History')">History</button>
+                </div>
+
+                <div class="progress-bar-container">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <p>Total Quizzes Completed: <span id="totalQuizzes">0</span></p>
+                </div>
+                
+                <button class="logout-btn" onclick="app.logout()">Logout</button>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quizSection" class="hidden-section">
+            <div class="card quiz-card">
+                <div class="quiz-header">
+                    <span id="quizSubjectTitle">Subject</span>
+                    <span id="questionCounter">Q1/5</span>
+                </div>
+                <h2 id="questionText">Loading Question...</h2>
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options injected here -->
+                </div>
+                <button id="nextBtn" onclick="app.nextQuestion()" class="hidden">Next Question</button>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="resultSection" class="hidden-section">
+            <div class="card result-card">
+                <h2>Quiz Complete! 🎉</h2>
+                <p>Your Score: <span id="scoreDisplay">0</span>/<span id="totalQuestionsDisplay">0</span></p>
+                <div id="feedbackMessage"></div>
+                <button onclick="app.showDashboard()">Back to Dashboard</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
